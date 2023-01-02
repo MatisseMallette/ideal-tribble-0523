@@ -10,6 +10,16 @@ RSpec.describe 'the studio index' do
 
   it 'displays a list of all studios, their names, locations, and movies, and under the movies I see their title, year of creation and genre' do
     visit "/studios"
-    save_and_open_page
+    expect(page).to have_content(@studio_a.name)
+    expect(page).to have_content(@studio_a.location)
+    expect(page).to have_content(@movie_1.title)
+    expect(page).to have_content(@movie_1.creation_year)
+    expect(page).to have_content(@movie_1.genre)
+    expect(page).to have_content(@studio_b.name)
+    expect(page).to have_content(@studio_b.location)
+    expect(page).to have_content(@movie_2.title)
+    expect(page).to have_content(@movie_2.creation_year)
+    expect(page).to have_content(@movie_2.genre)
+    
   end
 end
